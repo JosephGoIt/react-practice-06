@@ -18,3 +18,13 @@ export const getVisibleTasks = createSelector(
     }
   }
 );
+
+export const getActiveTaskCount = createSelector(
+    [getTasks],
+    tasks => tasks.filter(task => !task.completed).length
+  );
+  
+  export const getCompletedTaskCount = createSelector(
+    [getTasks],
+    tasks => tasks.filter(task => task.completed).length
+  );
